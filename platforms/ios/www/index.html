@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Image zoom with desktop and mobile support.">
+  <meta name="keywords" content="plugin,javascript,css,zoom">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>Property Management</title>
+  <!-- Path to Framework7 Library CSS-->
+  <link rel="stylesheet" href="css/framework7.ios.css">
+  <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+  <link rel="stylesheet" href="css/framework7-icons.css">
+  <!-- Path to your custom app styles-->
+  <!--<link rel="stylesheet" href="css/my-app.css">-->
+  <link rel="stylesheet" href="css/styless.css?v=10" type="text/css">
+  <link rel="stylesheet" href="css/framework7.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/blue.css">
+  <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
+  <link type="text/css" rel="stylesheet" href="css/animations.css" />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
+
+</head>
+<body id="mobile_wrap">
+<!-- Status bar overlay for fullscreen mode-->
+<div class="statusbar-overlay"></div>
+
+<div class="panel-overlay"></div>
+<!-- Left panel with reveal effect-->
+<div class="panel panel-left panel-reveal">
+  <div class="content-block">
+    <p>Left panel content goes here</p>
+  </div>
+</div>
+<!-- Right panel with cover effect-->
+<div class="panel panel-right panel-cover">
+  <div class="content-block">
+    <p>Right panel content goes here</p>
+  </div>
+</div>
+<!-- Views-->
+<div class="views">
+  <!-- Your main view, should have "view-main" class-->
+  <div class="view view-main">
+    <!-- Top Navbar-->
+
+    <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+
+
+        <!-- Page, data-page contains page name-->
+        <div class="pages">
+          <div data-page="index" class="page homepage">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+
+              <!--<div class="content-block-title">Options</div>-->
+
+              <div class="logo">
+                <!--<div class="row">-->
+                  <!--<div class="col-50">-->
+                    <!--<img src="images/PropertyAppLogo.png" width="90" height="90">-->
+
+
+                  <!--</div>-->
+                  <!--<div class="col-50">-->
+                    <strong>
+                      <a href="/">
+                        <img src="images/PropertyAppLogo.png"  />
+                      </a>
+                    </strong>
+                    <h1>TELAL</h1><span>Real Estate</span>
+                  <!--</div>-->
+                <!--</div>-->
+              </div>
+                <nav class="main-nav">
+                  <ul>
+                    <li>
+                      <a href="forms/Supplier.html"><img src="images/icons/white/group.png" alt="" title="" /><span>Supplier</span></a>
+                    </li>
+                    <li>
+                      <a href="forms/about.html"><img src="images/icons/white/Location.png" alt="" title="" /><span>Locations</span></a>
+                    </li>
+                    <li>
+                      <a href="forms/services.html"><img src="images/icons/white/house.png" alt="" title="" /><span>Flats</span></a>
+                    </li>
+                    <li>
+                      <a href="forms/form.html"><img src="images/icons/white/Flat.png" alt="" title="" /><span>Flats Rentals</span></a>
+                    </li>
+                    <li>
+                      <a href="forms/Historyform.html"><img src="images/icons/white/archive.png" alt="" title="" /><span>Flats History</span></a>
+                    </li>
+                  </ul>
+                </nav>
+
+
+            </div>
+          </div>
+        </div>
+
+
+    <!-- Bottom Toolbar-->
+    <!--<div class="toolbar">-->
+    <!--<div class="toolbar-inner"><a href="#" class="link">Link 1</a><a href="#" class="link">Link 2</a></div>-->
+    <!--</div>-->
+  </div>
+</div>
+<!-- Path to Framework7 Library JS-->
+
+<script type="text/javascript" src="cordova.js"></script>
+
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/framework7.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+<script type="text/javascript" src="js/Util.js"></script>
+<script type="text/javascript" src="js/Storage.js"></script>
+<script type="text/javascript" src="js/jquery.swipebox.js"></script>
+
+
+
+<!--<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>-->
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<!--<script src="js/jquery.validate.min.js" type="text/javascript"></script>-->
+<!--<script type="text/javascript" src="js/framework7.js"></script>-->
+<!--<script type="text/javascript" src="js/my-app.js"></script>-->
+<!--<script type="text/javascript" src="js/jquery.swipebox.js"></script>-->
+<script type="text/javascript" src="js/email.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/selectFx.js"></script>
+
+
+
+<script type="text/javascript" src="js/apis/LocationsApis.js"></script>
+<script type="text/javascript" src="js/apis/FlatsApis.js"></script>
+<script type="text/javascript" src="js/apis/SuppliersApis.js"></script>
+<script type="text/javascript" src="js/apis/CreateRental.js"></script>
+<script type="text/javascript" src="js/apis/RentalHistory.js"></script>
+<!--<script type="text/javascript" src="js/directive.js?v=1"></script>-->
+
+</body>
+</html>

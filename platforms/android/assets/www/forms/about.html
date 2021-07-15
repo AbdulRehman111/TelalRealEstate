@@ -1,0 +1,57 @@
+
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<!--<div class="navbar">-->
+  <!--<div class="navbar-inner">-->
+    <!--<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>-->
+    <!--<div class="center sliding">Flat Locations</div>-->
+    <!--<div class="right">-->
+      <!--&lt;!&ndash; Right link contains only icon - additional "icon-only" class&ndash;&gt;<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<div class="pages">
+  <!-- Page, data-page contains page name-->
+  <div data-page="Locations" class="page no-toolbar no-navbar">
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="navbarpages">
+        <div class="navbar_left"><a href="index.html"><img src="images/icons/white/back.png" alt="" title="" /></a></div>
+      </div>
+      <div id="pages_maincontent">
+          <div class="data-table data-table-init card">
+            <div class="card-header">
+              <!-- Table links/actions -->
+              <div class="data-table-links">
+                <a class="link" onclick="AddLocation();">Add Location</a>
+              </div>
+              <!-- Table actions -->
+              <div class="data-table-actions">
+                <a class="link icon-only"><i class="icon f7-icons">sort</i></a>
+
+              </div>
+            </div>
+            <div class="card-content">
+              <table>
+                <thead>
+                <tr>
+                  <!--<th class="checkbox-cell">-->
+                    <!--<label class="form-checkbox">-->
+                      <!--<input id="chk_h_1" type="checkbox"><i></i>-->
+                    <!--</label>-->
+                  <!--</th>-->
+                  <th class="label-cell">Location Name</th>
+                  <!--<th class="numeric-cell">Active</th>-->
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody id="tbLocation">
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>

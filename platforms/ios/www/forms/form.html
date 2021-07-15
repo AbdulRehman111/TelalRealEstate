@@ -1,0 +1,311 @@
+
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<!--<div class="navbar">-->
+<!--<div class="navbar-inner">-->
+<!--<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>-->
+<!--<div class="center sliding">Form</div>-->
+<!--<div class="right">-->
+<!--&lt;!&ndash; Right link contains only icon - additional "icon-only" class&ndash;&gt;<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="pages">
+
+
+
+  <!-- Page, data-page contains page name-->
+  <div data-page="Rentalform" class="page no-toolbar no-navbar" >
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="navbarpages">
+        <div class="navbar_left"><a href="index.html"><img src="images/icons/white/back.png" alt="" title="" /></a></div>
+        <div class="navbar_center"><h2>Check-In</h2></div>
+      </div>
+
+      <div id="pages_maincontent">
+        <div class="content-block-title">Flat Rentals</div>
+        <div class="list-block">
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">Flat No</div>
+                  <div class="item-input">
+                    <select id="ddlFlats">
+                      <!--<option>103 - Building A</option>-->
+                      <!--<option>104 - Building A</option>-->
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">Tennant Name</div>
+                  <div class="item-input">
+                    <input type="text" id="t_name" placeholder="Name"/>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">Tennat Mobile</div>
+                  <div class="item-input">
+                    <input type="number" id="t_mobile" placeholder="Mobile"/>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">Rate</div>
+                  <div class="row">
+                    <div class="col-50">
+                      <input type="number" id="t_Rate" onchange="SetAmount();" placeholder="Amount/Night"/>
+                    </div>
+                    <div class="col-50">
+                      <input type="number" id="t_duration" onchange="SetAmount();" placeholder="Duration"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!--<li>-->
+              <!--<div class="item-content">-->
+                <!--<div class="item-inner">-->
+                  <!--<div class="item-title label">Amount</div>-->
+                  <!--<div class="item-input">-->
+                    <!--<input type="number" id="t_Amount1" readonly="true" onchange="SetTotalAmount();" placeholder="Amount"/>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</li>-->
+            <li>
+              <div class="row">
+                <div class="col-30">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">Amount</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-20">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <!--<input type="number" id="t_Amount" readonly="true" onchange="SetTotalAmount();" />-->
+                      <span class="badge21" id="t_Amount">0</span>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-30">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title" id="dvVAT"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-20">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <span class="badge21" id="t_VATAmount">0</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">Agent</div>
+                  <div class="item-input">
+                    <select onchange="SetTotalAmount();" id="ddlSupplier">
+
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+
+
+            <li>
+              <div class="row">
+                <div class="col-25">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">Agent</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-25">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <span class="badge21" id="t_SuppAmount">0</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-25">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">Total</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-25">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <span class="badge21" id="t_totalAmount">0</span>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="col-75">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">Total + Agent Amount + VAT </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-25">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <span class="badge21" id="t_totalAmountx">0</span>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </li>
+
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">CheckIn Date</div>
+                  <div class="item-input">
+                    <input type="date" id="t_InDate" placeholder="CheckIn date" />
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">Attachments</div>
+                  <div class="item-input">
+                    <div class="row">
+                      <div class="col-50">
+                        <a href="#" id="takePicture" class="" onclick="takePicture1()">
+
+                          <img id="cam1" src="images/icons/custom/camera.png" width="60" />
+                        </a>
+                      </div>
+                      <div class="col-50">
+                        <a href="#" id="takePicture2" class="" onclick="takePicture2()">
+                          <img id="cam2" src="images/icons/custom/folders.png" width="60" />
+                        </a>
+                      </div>
+                    </div>
+
+                    <!--<div class="row animated bounceInDown">-->
+
+                    <!--<div id="dvPicture">-->
+                    <!---->
+                    <!---->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div id="dvPicture2">&ndash;&gt;-->
+                    <!--&lt;!&ndash;&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                    <!--</div>-->
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="align-top">
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">Comments</div>
+                  <div class="item-input">
+                    <textarea id="t_comments" class="form_textarea"></textarea>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-block">
+          <div class="row">
+            <div class="col-50"><a href="#" class="button button-big button-fill color-red" onclick="cancelForm();">Reset</a></div>
+            <div class="col-50">
+              <input type="submit" value="Submit" class="button button-big button-fill color-gray" onclick="submitForm();"/>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="content-block-title">Pending Rentals</div>-->
+
+        <!--<div class="data-table data-table-init card">-->
+        <!--<div class="card-header">-->
+        <!--&lt;!&ndash; Table links/actions &ndash;&gt;-->
+        <!--<div class="data-table-links">-->
+        <!--<a class="link">Add</a>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Table actions &ndash;&gt;-->
+        <!--<div class="data-table-actions">-->
+        <!--<a class="link icon-only"><i class="icon f7-icons">sort</i></a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="card-content">-->
+        <!--<table>-->
+        <!--<thead>-->
+        <!--<tr>-->
+        <!--<th class="checkbox-cell">-->
+        <!--<label class="form-checkbox">-->
+        <!--<input id="chk_h_1" type="checkbox"><i></i>-->
+        <!--</label>-->
+        <!--</th>-->
+        <!--<th class="label-cell">Flat No.</th>-->
+        <!--<th class="label-cell">Tennant Name</th>-->
+        <!--<th class="label-cell">CheckIn Date</th>-->
+        <!--<th class="numeric-cell">Comments</th>-->
+        <!--<th></th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr>-->
+        <!--<td class="checkbox-cell">-->
+        <!--<label class="form-checkbox">-->
+        <!--<input type="checkbox"><i></i>-->
+        <!--</label>-->
+        <!--</td>-->
+        <!--<td class="label-cell">104</td>-->
+        <!--<td class="label-cell">Abdul Rehman</td>-->
+        <!--<td class="label-cell">13-02-2017</td>-->
+        <!--<td class="numeric-cell">One Year Contract</td>-->
+        <!--<td class="actions-cell">-->
+        <!--<a class="link icon-only"><i class="icon f7-icons">compose</i></a>-->
+        <!--</td>-->
+        <!--</tr>-->
+
+        <!--</tbody>-->
+        <!--</table>-->
+        <!--</div>-->
+        <!--</div>-->
+
+      </div>
+    </div>
+  </div>
+</div>

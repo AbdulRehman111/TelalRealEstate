@@ -24,6 +24,7 @@ var mainView = myApp.addView('.view-main', {
 
 // Callbacks to run specific code for specific pages, for example for About page:
 myApp.onPageInit('about', function (page) {
+
     // run createContentPage func after link was clicked
     $$('.create-page').on('click', function () {
         createContentPage();
@@ -41,8 +42,8 @@ var dynamicPageIndex = 0;
 
 function ShowpendingRentals(flatid)
 {
-        $$('#dvtablePending').attr('style', '');
-        $$('#dvtablePending_h').attr('style', '');
+    $$('#dvtablePending').attr('style', '');
+    $$('#dvtablePending_h').attr('style', '');
 }
 
 
@@ -177,6 +178,7 @@ $$(document).on('pageAfterAnimation', function (e) {
         Util.showScreenLoader(true);
         getlocationddl();
         DisplayFlats();
+
     }
     else if(page.name == pageName.Supplier){
         Util.showScreenLoader(true);
@@ -184,15 +186,103 @@ $$(document).on('pageAfterAnimation', function (e) {
     }
     else if(page.name == pageName.Rentalform){
         Util.showScreenLoader(true);
+        $('#others').hide();
+        $('#showRates').hide();
         getFlatsddl();
+        getRate();
         getSuppliersddl();
         getVAT();
+          $("#t_InDate").kendoDateTimePicker({
+                  value: new Date(),
+                   format: "yyyy/MM/dd",
+                  change: onChange,
+                
+                  navigate: onNavigate
+              }
+          );
+        //$('#dvVAT').html('VAT');
+
     }
     else if(page.name == pageName.RentalHistory){
         Util.showScreenLoader(true);
         getFlatsddl();
+        $("#toSelectedDate").kendoDateTimePicker({
+                  value: new Date(),
+                  format: "yyyy/MM/dd",
+                  change: onChange,
+                  dateInput: false,
+               //readonly:true,
+                  navigate: onNavigate
+              }
+          );
+          $("#t_InDate").kendoDateTimePicker({
+                  value: new Date(),
+                   format: "yyyy/MM/dd",
+                  change: onChange,
+                  dateInput: false,
+               //readonly:true,
+                  navigate: onNavigate
+              }
+          );
+     
+           
+               $('#toSelectedDate').val('');
+             $('#t_InDate').val('');
+              //DISABLE inputs
+      
+
+function onChange() {
+   
+    console.log("Change :: " + kendo.toString(this.value(), 'd'))
+
+    //console.log("Change :: " + moment(kendo.toString(this.value(), 'd')).format('YYYY-MM-DDTHH:mm:ss'));
+
+}
+
+
+function onNavigate() {
+    console.log("Navigate");
+}
+        // $('#example').DataTable( {
+        //     "pagingType": "full_numbers"
+        // } );
+
+        // $("#example").DataTable({
+        //     "bJQueryUI":true,
+        //     "bSort":false,
+        //     "bPaginate":true,
+        //     "sPaginationType":"full_numbers",
+        //     "iDisplayLength": 3,
+        //     "bFilter": true,
+        //     "aoColumns": [
+        //         { "sType": "string", "bSearchable": false, "bSortable": false, "bVisible": true },
+        //         { "sType": "string", "bSearchable": true, "bSortable": true, "bVisible": true },
+        //         { "sType": "string", "bSearchable": true, "bSortable": true, "bVisible": true },
+        //         { "sType": "string", "bSearchable": true, "bSortable": true, "bVisible": true },
+        //         { "sType": "string", "bSearchable": true, "bSortable": true, "bVisible": true },
+        //     ]
+        // });
+
+
+        $('#example').DataTable(
+            {
+                "aoColumns": [
+                    { "sType": "string", "bSearchable": false, "bSortable": false, "bVisible": true },
+                    { "sType": "string", "bSearchable": false, "bSortable": false, "bVisible": true },
+                    { "sType": "string", "bSearchable": true, "bSortable": true, "bVisible": true },
+                    { "sType": "string", "bSearchable": true, "bSortable": true, "bVisible": true },
+                    { "sType": "string", "bSearchable": true, "bSortable": true, "bVisible": true },
+                    { "sType": "string", "bSearchable": true, "bSortable": true, "bVisible": true },
+                    { "sType": "string", "bSearchable": false, "bSortable": false, "bVisible": true }
+                ],
+                "sDom": '<"top"fp<"clear">>rt<"bottom"p<"clear">>',
+                "iDisplayLength": 5,
+                "aLengthMenu": [[5, 10, 20], [15, 50, 100]]
+            } );
+
     }
     else if(page.name == pageName.AttachemntPage){
+
         //Util.showScreenLoader(true);
         //$("#touchgallery").html("");
         //$("#touchgallery").append("<div id='floating-img'><img src='" + filename + "' width='100%' /></div>");
@@ -200,3 +290,14 @@ $$(document).on('pageAfterAnimation', function (e) {
     }
 
 });
+function zoomin() {
+    var GFG = document.getElementById("imgShow");
+    var currWidth = GFG.clientWidth;
+    GFG.style.width = (currWidth + 100) + "px";
+}
+
+function zoomout() {
+    var GFG = document.getElementById("imgShow");
+    var currWidth = GFG.clientWidth;
+    GFG.style.width = (currWidth - 100) + "px";
+}

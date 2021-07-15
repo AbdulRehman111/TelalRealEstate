@@ -15,6 +15,7 @@ var idnointernet;
 var fdnointernet = [];
 var linknointernet = [];
 var VAT_RATE=0;
+var flatAmount ='';
 
 function takePicture1() {
     console.log("Take Picture");
@@ -329,7 +330,35 @@ function getFlatsddl() {
         }
     });
 }
-
+function getRate() {
+    var url2=Storage.URL.GetRates;
+    console.log(url2);
+    var LocationClass= 'lang=en';
+    $.ajax({
+        type: "GET",
+        url: url2,
+        data: LocationClass,
+        success: OnGetFlatRateSuccess,
+        error: function (xhr, status, p3, p4) {
+            var err = "Error " + " " + status + " " + p3;
+            alert(err);
+        }
+    });
+}
+function OnGetFlatRateSuccess(data) {
+    console.log(data)
+    $("#t_Rate").html("");
+    var sResult = '<option value="0" selected>' + 'Select Amount/Night' + '</option>';
+    try {
+        for (var areaIterate = 0; areaIterate < data.length; areaIterate++) {
+            sResult += '<option value="' + data[areaIterate].ID + '" >' + data[areaIterate].NameEn +' -- '+ data[areaIterate].PerNightRate+ '</option>';
+        }
+        $("#t_Rate").html(sResult);
+        Util.showScreenLoader(false);
+    } catch (err) {
+        console.log(err);
+    }
+}
 function OnGetFlatComboSuccess(data) {
     console.log(data)
     $("#ddlFlats").html("");
@@ -396,7 +425,32 @@ function SetTotalAmount() {
 
 
 function SetAmount () {
-    var rateAmount=$('#t_Rate').val();
+    flatAmount = $('#t_Rate').val();
+    if(flatAmount == '7'){
+
+        flatAmount = $('#others').val();
+        //return false;
+    }else{
+        //console.log(flatAmount)
+        var getText = $("#t_Rate option:selected" ).text();
+        flatAmount = getText.slice(9, 13);
+        //$('#others').hide();
+        //$('#t_Rate').show();
+    }
+
+
+
+    //var rateAmount=$('#t_Rate').val();
+    console.log(flatAmount);
+    if(flatAmount == '' || flatAmount == '0'){
+
+
+        myApp.alert('Set Flat Rate','Error');
+        $$('#t_duration').val('');
+        return false;
+
+    }
+    var rateAmount=flatAmount;
     var NoOFNights=$('#t_duration').val();
     if(rateAmount!='' && rateAmount!='0' && NoOFNights!='' && NoOFNights!='0' ){
         var Amount=parseFloat(rateAmount)* parseFloat(NoOFNights);
@@ -422,7 +476,8 @@ function submitForm(){
     var VATAmount=$('#t_VATAmount').html();
     var VATRate=VAT_RATE;
 
-    var PerNightRate=$('#t_Rate').val();
+    //var PerNightRate=$('#t_Rate').val();
+    var PerNightRate = flatAmount;
     var Duration=$('#t_duration').val();
 
     if(CustomerName==''){
@@ -473,7 +528,8 @@ function submitForm(){
 function OnRentalInsertSuccess(data){
 
     myApp.alert('Record Inserted','Success');
-    cancelForm()
+    cancelForm();
+    mainView.router.loadPage("index.html");
 
 }
 
@@ -492,4 +548,35 @@ function cancelForm(){
     $('#t_Rate').val('');
     $('#t_duration').val('');
     fd= [];
+    flatAmount ='';
+}
+function getAmountByDropdown(){
+     flatAmount = $('#t_Rate').val();
+    if(flatAmount == '7'){
+
+        //console.log('others');
+        $('#others').show();
+        $('#showRates').show();
+        $('#t_Rate').hide();
+        flatAmount = $('#others').val();
+        return false;
+    }else{
+        //console.log(flatAmount)
+        $('#showRates').hide();
+
+        flatAmount ='';
+       var getText = $("#t_Rate option:selected" ).text();
+        flatAmount = getText.slice(9, 13);
+        $('#others').hide();
+        $('#t_Rate').show();
+    }
+    console.log(flatAmount);
+}
+function showRates(){
+    $('#t_Rate').show();
+    $('#showRates').hide();
+    $('#others').val('');
+    $('#t_Rate').val(0);
+    $('#others').hide();
+    flatAmount ='';
 }

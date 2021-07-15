@@ -5435,7 +5435,7 @@ html:not(.watch-active-state) .theme-gray .button:not(.button-fill):active,
 }
 .theme-gray .button.button-fill,
 .button.button-fill.color-gray {
-  background: #8e8e93;
+  background: #3f51b5;
   color: #fff;
 }
 .color-gray i.icon,

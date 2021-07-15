@@ -53,7 +53,9 @@ var Storage = {
 
         InsertRentals:mainURL + 'Rental/SetRental',
         GetRentals:mainURL + 'Rental/GetRentals',
-        MakeCheckOut:mainURL+'Rental/MakeCheckOut'
+        GetRentals2:mainURL + 'Rental/GetRentals2',
+        MakeCheckOut:mainURL+'Rental/MakeCheckOut',
+        GetRates:mainURL + 'rates/getRates'
 
     },
 

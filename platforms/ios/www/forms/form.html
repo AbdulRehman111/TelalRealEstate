@@ -65,10 +65,19 @@
                 <div class="item-inner">
                   <div class="item-title label">Rate</div>
                   <div class="row">
-                    <div class="col-50">
-                      <input type="number" id="t_Rate" onchange="SetAmount();" placeholder="Amount/Night"/>
+                    <div class="col-60">
+                      <!--<input type="number" id="t_Rate" onchange="SetAmount();" placeholder="Amount/Night"/>-->
+                      <select id="t_Rate" onchange="getAmountByDropdown(); SetAmount(); ">
+                        <!--<option>103 - Building A</option>-->
+                        <!--<option>104 - Building A</option>-->
+                      </select>
+
+                      <input style="width: 80%; font-size: 13px;" id="others" onchange="SetAmount();" type="number" placeholder="Type other Rate" />
+                      <button id="showRates" onclick="showRates();"  style="margin-top: -35px; float: right; background-color: #157efb;">X</button>
                     </div>
-                    <div class="col-50">
+
+
+                    <div class="col-40">
                       <input type="number" id="t_duration" onchange="SetAmount();" placeholder="Duration"/>
                     </div>
                   </div>
@@ -193,7 +202,7 @@
                 <div class="item-inner">
                   <div class="item-title label">CheckIn Date</div>
                   <div class="item-input">
-                    <input type="date" id="t_InDate" placeholder="CheckIn date" />
+                    <input type="text" id="t_InDate" placeholder="CheckIn date" />
                   </div>
                 </div>
               </div>

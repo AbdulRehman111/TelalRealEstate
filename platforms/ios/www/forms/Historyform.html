@@ -2,13 +2,13 @@
 <!-- We don't need full layout here, because this page will be parsed with Ajax-->
 <!-- Top Navbar-->
 <!--<div class="navbar">-->
-  <!--<div class="navbar-inner">-->
-    <!--<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>-->
-    <!--<div class="center sliding">Form</div>-->
-    <!--<div class="right">-->
-      <!--&lt;!&ndash; Right link contains only icon - additional "icon-only" class&ndash;&gt;<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>-->
-    <!--</div>-->
-  <!--</div>-->
+<!--<div class="navbar-inner">-->
+<!--<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>-->
+<!--<div class="center sliding">Form</div>-->
+<!--<div class="right">-->
+<!--&lt;!&ndash; Right link contains only icon - additional "icon-only" class&ndash;&gt;<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>-->
+<!--</div>-->
+<!--</div>-->
 <!--</div>-->
 <div class="pages">
   <!-- Page, data-page contains page name-->
@@ -17,107 +17,150 @@
     <div class="page-content">
       <div class="navbarpages">
         <div class="navbar_left"><a href="index.html"><img src="images/icons/white/back.png" alt="" title="" /></a></div>
+        <div class="navbar_center"><h2>Flats History</h2></div>
       </div>
       <div id="pages_maincontent">
-      <div class="content-block-title">Flat Rentals</div>
-      <div class="list-block">
-        <ul class="historyList">
-          <li>
-            <div class="item-content">
-              <div class="item-inner">
-                <div class="item-title label">Flat No</div>
-                <div class="item-input">
-                  <select id="ddlFlats">
-                  </select>
+        <div class="content-block-title">Flat Rentals</div>
+        <div class="list-block" style="margin-bottom: 15px;">
+          <ul class="historyList">
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label" style="width: 18%; margin-left: 5px;">Flat No:</div>
+                  <div class="item-input">
+                    <select id="ddlFlats">
+                    </select>
+                  </div>
+                  <div class="item-title label" style="width: 18%;">Name:</div>
+                  <div class="item-input">
+                    <input type="text" value="" id="searchByName">
+                    </select>
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-inner">
-                <div class="item-title label">Select Month</div>
-                <div class="item-input">
-                  <input type="date" id="t_InDate" placeholder="Select Month" />
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-inner">
-                <!--<div class="item-title label">View History</div>-->
-                <div class="item-input">
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label" style="width: 30%;">Date From :</div>
+                  <div class="item-input"  style="margin:1px;">
+                    <input type="text" id="t_InDate" placeholder="Select Date From" />
+                  </div>
 
-                  <label class="label-checkbox item-content">
-                    <!-- Checked by default -->
-                    <input type="checkbox" id="chk_history"  />
-                    <div class="item-media">
-                      <i class="icon icon-form-checkbox"></i>
-                    </div>
-                    <div class="item-inner">
-                      <div class="item-title">View History</div>
-                    </div>
-                  </label>
+                </div>
 
-                  <!--<input type="checkbox" id="chk_history"  />-->
+              </div>
+              </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label" style="width: 30%">Date To :</div>
+                  <div class="item-input" style="margin:1px;">
+                    <input type="text" id="toSelectedDate" placeholder="Select Date to" />
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="content-block">
-        <div class="row">
-          <div class="col-100">
-            <input type="submit" value="Submit" class="button button-big button-fill color-gray" onclick="DisplayHistory('ddlFlat')"/>
-          </div>
+            </li>
+            <li>
+              <div class="" style="border-top: 2px solid;">
+                <!--<div class="item-inner">-->
+                  <!--&lt;!&ndash;<div class="item-title label">View History</div>&ndash;&gt;-->
+                  <!--<div class="item-input">-->
+
+                    <!--<label class="label-checkbox item-content">-->
+                      <!--&lt;!&ndash; Checked by default &ndash;&gt;-->
+                      <!--<input type="checkbox" id="chk_history"  />-->
+                      <!--<div class="item-media">-->
+                        <!--<i class="icon icon-form-checkbox"></i>-->
+                      <!--</div>-->
+                      <!--<div class="item-inner">-->
+                        <!--<div class="item-title">View History</div>-->
+                      <!--</div>-->
+                    <!--</label>-->
+
+                    <!--&lt;!&ndash;<input type="checkbox" id="chk_history"  />&ndash;&gt;-->
+                  <!--</div>-->
+                <!--</div>-->
+              </div>
+            </li>
+          </ul>
         </div>
+        <div class="content-block" style="margin: 5px 0 !important;">
+          <div class="row">
+            <div class="col-100">
+              <input type="submit" value="Submit" class="button button-big button-fill color-gray" onclick="DisplayHistory('ddlFlat')" />
+              <!--<input type="submit" value="Calender" class="button button-big button-fill color-gray" onclick="showCalender()"/>-->
+
+
+              <!--<div class="demo-section k-content" style="text-align: center;">-->
+              <!--<h4>Disable weekends</h4>-->
+              <!--<div id="weekend-calendar"></div>-->
+
+
+
+              <!--</div>-->
+
+              <!--&lt;!&ndash;<div id="calenderEvents" style="width: 100%;"></div>&ndash;&gt;-->
+              <!--<div id="myModal" class="modal fade" role="dialog" >-->
+
+              <!--<div class="box">-->
+              <!--&lt;!&ndash;<h4>Console log</h4>&ndash;&gt;-->
+
+
+              <!--</div>-->
+              <!--</div>-->
+            </div>
+
+          </div>
+
+          <!--<div class="content-block-title" id="dvtablePending_h" style="display: none">Pending Rentals</div>-->
+
+          <!--<div  class="data-table data-table-init card" id="dvtablePending" style="display: none">-->
+
+          <!--&lt;!&ndash;<div class="card-content">&ndash;&gt;-->
+          <!--&lt;!&ndash;<table  id="example" class="display" width="100%" cellspacing="0">&ndash;&gt;-->
+          <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+          <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th class="label-cell"></th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th class="label-cell">Flat No.</th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th class="label-cell">Customer Name</th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th class="label-cell">Check-In</th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th class="label-cell">Check-Out</th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th class="label-cell">Amount</th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th class="label-cell">VAT</th>&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash;<th class="numeric-cell">Comments</th>&ndash;&gt;&ndash;&gt;-->
+          <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
+          <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+          <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+          <!--&lt;!&ndash;<tfoot>&ndash;&gt;-->
+          <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th>Flat No.</th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th>Customer Name</th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th>Check-In</th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th>Check-Out</th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th>Amount</th>&ndash;&gt;-->
+          <!--&lt;!&ndash;<th>VAT</th>&ndash;&gt;-->
+
+          <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+          <!--&lt;!&ndash;</tfoot>&ndash;&gt;-->
+          <!--&lt;!&ndash;<tbody id="tb_History">&ndash;&gt;-->
+          <!--&lt;!&ndash;</tbody>&ndash;&gt;-->
+          <!--&lt;!&ndash;</table>&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+          <!--</div>-->
+
+          <!--</div>-->
+          <!--</div>-->
+<!--          <div id="dvPopUpHistory" style="display: none ;">-->
+<!--            <div class="">-->
+<!--              <input type="text" id="t_OutDate" placeholder="Select Date"  /> </div><br>-->
+<!--          </div>-->
+
+        </div>
+        <div id="calenderEvents" style="width: 92%; margin-left: 15px;"></div>
       </div>
 
-      <div class="content-block-title" id="dvtablePending_h" style="display: none">Pending Rentals</div>
-
-      <div  class="data-table data-table-init card" id="dvtablePending" style="display: none">
-
-        <!--<div class="card-content">-->
-          <table  id="example" class="display" width="100%" cellspacing="0">
-            <thead>
-            <tr>
-              <th class="label-cell"></th>
-              <th class="label-cell">Flat No.</th>
-              <th class="label-cell">Customer Name</th>
-              <th class="label-cell">Check-In</th>
-              <th class="label-cell">Check-Out</th>
-              <th class="label-cell">Amount</th>
-              <th class="label-cell">VAT</th>
-              <!--<th class="numeric-cell">Comments</th>-->
-              <th></th>
-            </tr>
-            </thead>
-            <tfoot>
-            <tr>
-              <th></th>
-              <th>Flat No.</th>
-              <th>Customer Name</th>
-              <th>Check-In</th>
-              <th>Check-Out</th>
-              <th>Amount</th>
-              <th>VAT</th>
-
-            </tr>
-            </tfoot>
-            <tbody id="tb_History">
-            </tbody>
-          </table>
-        <!--</div>-->
-      </div>
-
-      </div>
     </div>
-    <div id="dvPopUpHistory" style="display: none">
-      <div class="picker-calendar-selected-date">
-        <input type="date" id="t_OutDate" placeholder="Select Date" /> </div><br>
-    </div>
 
-  </div>
-</div>
+  </div></div>

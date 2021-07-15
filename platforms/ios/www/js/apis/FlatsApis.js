@@ -127,6 +127,8 @@ function OnGetLocComboSuccess(data) {
 }
 
 
+
+
 function DisplayFlats(){
     var url2=Storage.URL.GetFlats;
     //console.log(url2);
